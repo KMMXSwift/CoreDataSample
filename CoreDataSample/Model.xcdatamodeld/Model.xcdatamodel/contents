@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15C40a" minimumToolsVersion="Xcode 7.0">
+    <entity name="Address" representedClassName=".Address" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="suite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zipcode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="address" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Company" representedClassName=".Company" syncable="YES">
+        <attribute name="bs" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="catchphrase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="company" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="address" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Address" inverseName="user" inverseEntity="Address" syncable="YES"/>
+        <relationship name="company" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Company" inverseName="employees" inverseEntity="Company" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-342" positionY="-153" width="128" height="163"/>
+        <element name="Address" positionX="277" positionY="14" width="128" height="148"/>
+        <element name="Company" positionX="108" positionY="291" width="128" height="105"/>
+    </elements>
+</model>
